@@ -35,5 +35,3 @@ cacheSolve <- function(x, ...) {
   m
 }
 
-primera_prueba <- makeCacheMatrix(x = matrix(data = rnorm(9), ncol = 3, nrow = 3))
-cacheSolve(primera_prueba)
