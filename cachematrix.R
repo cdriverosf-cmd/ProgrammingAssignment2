@@ -1,7 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This peer-functions calculate the matrix's inverse. 
 
-## Write a short comment describing this function
+## This function creates a matrix which set values of the matrix, get those values of the matrix,
+## set value of the matrix's inverse, get value of the matrix's inverse. 
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -18,11 +18,14 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## The following function calculates the inverse of the special matrix created 
+## with the above function. It first checks to see if the inverse 
+## has already been calculated and the matrix has not changed. 
 
 cacheSolve <- function(x, ...) {
   m <- x$getsolve()
-  if(!is.null(m)) {
+  m_inicial <- x$get
+  if(!is.null(m) & !identical(m,m_inicial)) {
     message("getting cached data")
     return(m)
   }
@@ -31,3 +34,6 @@ cacheSolve <- function(x, ...) {
   x$setsolve(m)
   m
 }
+
+primera_prueba <- makeCacheMatrix(x = matrix(data = rnorm(9), ncol = 3, nrow = 3))
+cacheSolve(primera_prueba)
